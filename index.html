@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <title>FOR YOU, ANNY 🌻</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ESCENA 3D -->
+    <div id="universe"></div>
+
+
+    <!-- ================================
+         INTRO
+    ================================= -->
+
+    <section id="intro">
+
+        <div class="intro-background"></div>
+
+        <button
+            id="flowerButton"
+            aria-label="Abrir sorpresa"
+        >
+
+            <div class="sunflower">
+
+                <div class="petal p1"></div>
+                <div class="petal p2"></div>
+                <div class="petal p3"></div>
+                <div class="petal p4"></div>
+                <div class="petal p5"></div>
+                <div class="petal p6"></div>
+                <div class="petal p7"></div>
+                <div class="petal p8"></div>
+                <div class="petal p9"></div>
+                <div class="petal p10"></div>
+                <div class="petal p11"></div>
+                <div class="petal p12"></div>
+
+                <div class="sunflower-center"></div>
+
+            </div>
+
+        </button>
+
+
+        <p class="intro-title">
+            Encontré algo para ti
+        </p>
+
+        <p class="intro-touch">
+            ¿Podrías hacer el honor de tocar la flor?
+        </p>
+
+    </section>
+
+
+    <!-- FLASH -->
+    <div id="flash"></div>
+
+
+    <!-- ================================
+         INTERFAZ GALAXIA
+    ================================= -->
+
+    <header id="galaxyTitle">
+        Feliz Día de las Flores Amarillas 🌻
+    </header>
+
+
+    <div id="desktopHelp">
+        MANTÉN CLIC Y ARRASTRA · RUEDA PARA ACERCAR
+    </div>
+
+
+    <div id="mobileHelp">
+        DESLIZA PARA EXPLORAR · PELLIZCA PARA ACERCAR
+    </div>
+
+
+    <!--
+        IMPORTANTE:
+
+        Ahora usamos módulos ES de Three.js.
+        Por eso main.js también será type="module".
+    -->
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.158.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.158.0/examples/jsm/"
+            }
+        }
+    </script>
+    <script type="module" src="main.js"></script>
+
+</body>
+
+</html>

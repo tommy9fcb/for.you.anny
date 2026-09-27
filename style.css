@@ -1,0 +1,493 @@
+/* ============================================================
+   RESET
+============================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    background: #000;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    overscroll-behavior: none;
+}
+
+
+/* ============================================================
+   THREE.JS
+============================================================ */
+
+#universe {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 0;
+
+    background: #000;
+
+    touch-action: none;
+
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+
+#universe canvas {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    cursor: grab;
+
+    touch-action: none;
+}
+
+
+body.dragging #universe canvas {
+    cursor: grabbing;
+}
+
+
+/* ============================================================
+   INTRO
+============================================================ */
+
+#intro {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 30;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    background: #000;
+
+    transition:
+        opacity 1.4s ease,
+        transform 1.8s cubic-bezier(.2,.8,.2,1),
+        filter 1.5s ease;
+}
+
+
+#intro.disappear {
+    opacity: 0;
+
+    transform: scale(4);
+
+    filter: blur(10px);
+
+    pointer-events: none;
+}
+
+
+.intro-background {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 193, 7, .08) 0%,
+            rgba(255, 153, 0, .025) 25%,
+            #000 65%
+        );
+}
+
+
+/* ============================================================
+   BOTÓN FLOR
+============================================================ */
+
+#flowerButton {
+    position: relative;
+
+    width: 190px;
+    height: 190px;
+
+    border: 0;
+
+    background: transparent;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    z-index: 2;
+
+    animation:
+        introFloat 3.2s
+        ease-in-out infinite;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(255, 213, 0, .65)
+        )
+        drop-shadow(
+            0 0 25px
+            rgba(255, 160, 0, .25)
+        );
+
+    transition:
+        transform .4s ease,
+        filter .4s ease;
+}
+
+
+#flowerButton:hover {
+    transform: scale(1.1);
+
+    filter:
+        drop-shadow(
+            0 0 14px
+            rgba(255, 235, 80, 1)
+        )
+        drop-shadow(
+            0 0 45px
+            rgba(255, 160, 0, .6)
+        );
+}
+
+
+/* ============================================================
+   GIRASOL INTRO
+============================================================ */
+
+.sunflower {
+    position: relative;
+
+    width: 150px;
+    height: 150px;
+}
+
+
+.petal {
+    position: absolute;
+
+    width: 34px;
+    height: 73px;
+
+    left: 58px;
+    top: 2px;
+
+    transform-origin:
+        17px 73px;
+
+    border-radius:
+        70% 70% 45% 45%;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 35%,
+            #fff9a0 0%,
+            #ffe62e 23%,
+            #ffc400 57%,
+            #d98500 100%
+        );
+
+    box-shadow:
+        0 0 8px
+        rgba(255, 205, 0, .65);
+}
+
+
+.p1  { transform: rotate(0deg); }
+.p2  { transform: rotate(30deg); }
+.p3  { transform: rotate(60deg); }
+.p4  { transform: rotate(90deg); }
+.p5  { transform: rotate(120deg); }
+.p6  { transform: rotate(150deg); }
+.p7  { transform: rotate(180deg); }
+.p8  { transform: rotate(210deg); }
+.p9  { transform: rotate(240deg); }
+.p10 { transform: rotate(270deg); }
+.p11 { transform: rotate(300deg); }
+.p12 { transform: rotate(330deg); }
+
+
+.sunflower-center {
+    position: absolute;
+
+    width: 72px;
+    height: 72px;
+
+    left: 39px;
+    top: 39px;
+
+    z-index: 10;
+
+    border-radius: 50%;
+
+    background:
+        repeating-radial-gradient(
+            circle,
+            #6e3b08 0px,
+            #6e3b08 2px,
+            #432000 3px,
+            #432000 5px
+        );
+
+    box-shadow:
+        inset 0 0 18px #000,
+        0 0 12px rgba(255,190,0,.6);
+}
+
+
+/* ============================================================
+   INTRO TEXT
+============================================================ */
+
+.intro-title {
+    z-index: 2;
+
+    margin-top: 35px;
+
+    color: #fff1a4;
+
+    font-size:
+        clamp(17px, 2vw, 23px);
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 14px
+        rgba(255, 193, 7, .45);
+}
+
+
+.intro-touch {
+    z-index: 2;
+
+    margin-top: 13px;
+
+    color:
+        rgba(255,255,255,.45);
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    animation:
+        blink 2s
+        ease-in-out infinite;
+}
+
+
+/* ============================================================
+   FLASH
+============================================================ */
+
+#flash {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 40;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle,
+            #fffde0 0%,
+            #fff176 12%,
+            #ffd000 30%,
+            rgba(255, 153, 0, .45) 52%,
+            transparent 75%
+        );
+}
+
+
+/* ============================================================
+   TÍTULO
+============================================================ */
+
+#galaxyTitle {
+    position: fixed;
+
+    top: 6%;
+    left: 50%;
+
+    width: 92%;
+
+    z-index: 10;
+
+    transform:
+        translate(-50%, -25px);
+
+    text-align: center;
+
+    color: #ffe34e;
+
+    font-size:
+        clamp(22px, 3vw, 45px);
+
+    font-weight: 600;
+
+    letter-spacing: .5px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    text-shadow:
+        0 0 5px #ffd000,
+        0 0 16px rgba(255,193,7,.8),
+        0 0 40px rgba(255,145,0,.45);
+
+    transition:
+        opacity 2s ease,
+        transform 2s ease;
+}
+
+
+#galaxyTitle.visible {
+    opacity: 1;
+
+    transform:
+        translate(-50%, 0);
+}
+
+
+/* ============================================================
+   AYUDA
+============================================================ */
+
+#desktopHelp,
+#mobileHelp {
+    position: fixed;
+
+    z-index: 10;
+
+    bottom: 3%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 95%;
+
+    text-align: center;
+
+    color:
+        rgba(255,255,255,.38);
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 2s ease;
+}
+
+
+#desktopHelp.visible,
+#mobileHelp.visible {
+    opacity: 1;
+}
+
+
+#mobileHelp {
+    display: none;
+}
+
+
+/* ============================================================
+   ANIMACIONES
+============================================================ */
+
+@keyframes introFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-1deg);
+    }
+
+    50% {
+        transform:
+            translateY(-12px)
+            rotate(1deg);
+    }
+}
+
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: .25;
+    }
+
+    50% {
+        opacity: .85;
+    }
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 700px) {
+
+    #desktopHelp {
+        display: none;
+    }
+
+    #mobileHelp {
+        display: block;
+    }
+
+    #galaxyTitle {
+        top: 4%;
+
+        font-size:
+            clamp(20px, 7vw, 32px);
+    }
+
+    #flowerButton {
+        transform: scale(.88);
+    }
+
+}
