@@ -147,7 +147,7 @@ const CONFIG = {
 
         "Amo tus caricias, tus ofensas",
 
-        "Amo tus instantes y lo eterno",
+        "Amo tus instantes y lo eterno"
         
     ]
 
