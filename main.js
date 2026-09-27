@@ -75,9 +75,17 @@ const CONFIG = {
 
         "Flores para la chica más hermosa del mundo",
 
-        "No solo los 21 de septiembre se regalan flores",
+        "21 de septiembre, día de las flores amarillas",
 
-        "Aquí siempre habrá alguien que te cuide y te proteja,\ny esa persona soy yo",
+        "Mientras yo viva, siempre habrá alguien que quiera verte feliz".
+
+        "Te quiero al infinito y más allá",
+
+        "Eres tan hermosa como las estrellas de la galaxia",
+
+        "Playa + aterdecer + vino y copas + Tú y Yo",
+
+        "Mientras siga en esta vida\nsiempre habrá alguien que te cuide y te proteja",
 
         "te quiero tanto que no hay palabras\npara describir lo que siento por ti",
 
