@@ -77,7 +77,7 @@ const CONFIG = {
 
         "21 de septiembre, día de las flores amarillas",
 
-        "Mientras yo viva, siempre habrá alguien que quiera verte feliz".
+        "Mientras yo viva, siempre habrá alguien que quiera verte feliz",
 
         "Te quiero al infinito y más allá",
 
